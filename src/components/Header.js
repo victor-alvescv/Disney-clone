@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth, provider } from '../firebase';
 import {
   selectUserName,
@@ -38,75 +38,77 @@ const Header = (props) => {
         })
     } else if (userName) {
       auth
-      .signOut()
-      .then(() => {
-        dispatch(setSignOutState())
-        navigate('/')
-      })
-      .catch((error) => alert(error.message));
-      }
-    };
-
-    const setUser = (user) => {
-      dispatch(
-        setUserLoginDetails({
-          name: user.displayName,
-          email: user.email,
-          photo: user.photoURL,
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState())
+          navigate('/')
         })
-      );
-    };
+        .catch((error) => alert(error.message));
+    }
+  };
 
-    return (
-      <Nav>
-        <Logo>
-          <img src="/images/logo.svg" alt="Disney+" />
-        </Logo>
-
-        {
-          !userName ? (
-            <Login onClick={handleAuth}>Login</Login>
-            ) : (     
-            <>
-              <NavMenu>
-                <a href="/home">
-                  <img src="/images/home-icon.svg" alt="HOME" />
-                  <span>HOME</span>
-                </a>
-                <a>
-                  <img src="/images/search-icon.svg" alt="SEARCH" />
-                  <span>SEARCH</span>
-                </a>
-                <a>
-                  <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
-                  <span>WATCHLIST</span>
-                </a>
-                <a>
-                  <img src="/images/original-icon.svg" alt="ORIGINALS" />
-                  <span>ORIGINALS</span>
-                </a>
-                <a>
-                  <img src="/images/movie-icon.svg" alt="MOVIES" />
-                  <span>MOVIES</span>
-                </a>
-                <a>
-                  <img src="/images/series-icon.svg" alt="SERIES" />
-                  <span>SERIES</span>
-                </a>
-              </NavMenu>
-              <SignOut>
-                <UserImg src={userPhoto} alt={userName} />
-                <DropDown>
-                  <span onClick={handleAuth}>Sign out</span>
-                </DropDown>
-              </SignOut>
-            </>
-        )}
-      </Nav>
+  const setUser = (user) => {
+    dispatch(
+      setUserLoginDetails({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      })
     );
   };
 
-  const Nav = styled.nav`
+  return (
+    <Nav>
+      <Logo>
+        <Link to="/home">
+        <img src="/images/logo.svg" alt="Disney+" />
+        </Link>
+      </Logo>
+
+      {
+        !userName ? (
+          <Login onClick={handleAuth}>Login</Login>
+        ) : (
+          <>
+            <NavMenu>
+              <Link to="/home">
+                <img src="/images/home-icon.svg" alt="HOME" />
+                <span>HOME</span>
+              </Link>
+              <a>
+                <img src="/images/search-icon.svg" alt="SEARCH" />
+                <span>SEARCH</span>
+              </a>
+              <a>
+                <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
+                <span>WATCHLIST</span>
+              </a>
+              <a>
+                <img src="/images/original-icon.svg" alt="ORIGINALS" />
+                <span>ORIGINALS</span>
+              </a>
+              <a>
+                <img src="/images/movie-icon.svg" alt="MOVIES" />
+                <span>MOVIES</span>
+              </a>
+              <a>
+                <img src="/images/series-icon.svg" alt="SERIES" />
+                <span>SERIES</span>
+              </a>
+            </NavMenu>
+            <SignOut>
+              <UserImg src={userPhoto} alt={userName} />
+              <DropDown>
+                <span onClick={handleAuth}>Sign out</span>
+              </DropDown>
+            </SignOut>
+          </>
+        )}
+    </Nav>
+  );
+};
+
+const Nav = styled.nav`
 position: fixed;
 top: 0;
 left: 0;
@@ -121,7 +123,7 @@ letter-spacing: 16px;
 z-index: 3;
 `
 
-  const Logo = styled.a`
+const Logo = styled.a`
  padding: 0;
  width: 80px;
  margin-top: 4px;
@@ -133,9 +135,14 @@ z-index: 3;
     display: block;
     width: 100%;
  }
+
+ @media (max-width: 768px) {
+  width: 70px;
+} 
+
 `;
 
-  const NavMenu = styled.div`
+const NavMenu = styled.div`
 align-items: center;
 display: flex;
 flex-flow: row nowrap;
@@ -146,6 +153,8 @@ padding: 0px;
 position: relative;
 margin-right: auto;
 margin-left: 25px;
+
+}
 
 a {
     display: flex;
@@ -168,8 +177,10 @@ span {
     padding: 2px 0px;
     white-space: nowrap;
     position: relative;
-    cursor: pointer;
+    cursor: default;
     font-weight: bold;
+    
+    
 
   &:before {
     background-color: rgb(249, 249, 249);
@@ -188,7 +199,6 @@ span {
     width: auto;
   }
 }
-
 &:hover {
     span:before {
         transform: scaleX(1);
@@ -200,12 +210,12 @@ span {
 
 
 
- @media (max-width: 768px) {
+ @media (max-width: 880px) {
     display: none; 
 } 
 `;
 
-  const Login = styled.a`
+const Login = styled.a`
  background-color: rgba(0, 0, 0, 0.6);
  padding: 8px 16px;
  text-transform: uppercase;
@@ -214,6 +224,7 @@ span {
  border-radius: 4px;
  transition: all 0.2s ease 0s;
  cursor: pointer;
+ font-weight: bold;
 
 &:hover {
     background-color: #f9f9f9;
@@ -222,11 +233,11 @@ span {
   }
 `;
 
-  const UserImg = styled.img`
+const UserImg = styled.img`
 height: 100%;
 `;
 
-  const DropDown = styled.div`
+const DropDown = styled.div`
 position: absolute;
 top: 48px;
 right: 0px;
@@ -241,7 +252,7 @@ width: 100px;
 opacity: 0; 
 `
 
-  const SignOut = styled.div`
+const SignOut = styled.div`
 position: relative;
 height: 48px;
 width: 48px;
@@ -254,6 +265,12 @@ ${UserImg} {
   border-radius: 50%;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  height: 90%;
+} 
+
 }
 
 

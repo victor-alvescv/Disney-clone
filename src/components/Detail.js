@@ -29,37 +29,45 @@ const Detail = (props) => {
         <Background>
             <img src={detailData.backgroundImg} alt={detailData.title} />
         </Background>
-
+        <PageContent>
         <ImageTitle>
         <img src={detailData.titleImg} alt={detailData.title} />
         </ImageTitle>
+        <UnderImage>
+        <Additionals>
+        <img src={detailData.classification} alt={detailData.title} />
+        <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/FD4912EB883B7CCB847EB9C62E1FC853D547CAF7DF940B9086AE35AFAD0848AB/scale?width=2400" />
+        <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/FAE63AC7AC11C27C949E1856CF188BF09FC20EA52AEA3B65B43C24EEB5F29BFD/scale?width=240" />
+        </Additionals>  
+        <SubTitle>
+                {detailData.subTitle}
+            </SubTitle>
+            </UnderImage>
+            <Details>
+            {detailData.subTitle2}
+            </Details>
         <ContentMeta>
             <Controls>
+              {
+
+              }
                 <Player>
                     <img src="/images/play-icon-black.png" alt="" />
                     <span>Play</span>
                 </Player>
                 <Trailer>
-                    <img src="/images/play-icon-white.png" alt="" />
                     <span>Trailer</span>
                 </Trailer>
                 <AddList>
                     <span />
                     <span />
                 </AddList>
-                <GroupWatch>
-                    <div>
-                        <img src="/images/group-icon.png" alt="" />
-                    </div>
-                </GroupWatch>
             </Controls>
-            <SubTitle>
-                {detailData.subTitle}
-            </SubTitle>
             <Description>
                 {detailData.description}
             </Description>
         </ContentMeta>
+        </PageContent>
     </Container>
 
 }
@@ -69,9 +77,29 @@ const Container = styled.div`
   min-height: calc(100vh-250px);
   overflow-x: hidden;
   display: block;
-  top: 72px;
   padding: 0 calc(3.5vw + 5px);
+ background-image: radial-gradient(farthest-side at 73% 21%, transparent, rgb(26, 29, 41));
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  inset: 0px;
+
 `;
+
+const PageContent = styled.div`
+margin-top: -120px;
+max-width: 500px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+
+`
+
+const UnderImage = styled.div`
+display: flex;
+`
 
 const Background = styled.div`
   left: 0px;
@@ -84,10 +112,12 @@ const Background = styled.div`
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    gradient-bottom: 
+    
+    
     @media (max-width: 768px) {
       width: initial;
       width: 100vw;
+      }
     }
   }
 `;
@@ -103,9 +133,10 @@ const ImageTitle = styled.div`
   padding-bottom: 24px;
   width: 100%;
   img {
-    max-width: 600px;
-    min-width: 200px;
+    max-width: 341px;
+    min-width: 100px;
     width: 35vw;
+    
   }
 `;
 
@@ -117,7 +148,7 @@ const Controls = styled.div`
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
-  margin: 24px 0px;
+  margin-top: 32px;
   min-height: 56px;
 `;
 
@@ -133,12 +164,15 @@ const Player = styled.button`
   justify-content: center;
   letter-spacing: 1.8px;
   text-align: center;
+  font-weight: bold;
   text-transform: uppercase;
   background: rgb (249, 249, 249);
+  transition-duration: 400ms;
   border: none;
   color: rgb(0, 0, 0);
   img {
-    width: 32px;
+    width: 20px;
+    margin-right: 10px;
   }
   &:hover {
     background: rgb(198, 198, 198);
@@ -158,7 +192,11 @@ const Trailer = styled(Player)`
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
-`;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+ `;
 
 const AddList = styled.div`
   margin-right: 16px;
@@ -167,13 +205,26 @@ const AddList = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   border: 2px solid white;
+  transition-duration: 400ms;
   cursor: pointer;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
   span {
     background-color: rgb(249, 249, 249);
     display: inline-block;
+
+
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+
     &:first-child {
       height: 2px;
       transform: translate(1px, 0px) rotate(0deg);
@@ -202,19 +253,55 @@ const GroupWatch = styled.div`
     background: rgb(0, 0, 0);
     border-radius: 50%;
     img {
-      width: 100%;
+      width: 80%;
     }
   }
 `;
 
+
+const Additionals = styled.div`
+min-width: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 10px;
+height: 20px;
+left: 65px;
+
+
+img {
+  height: 20px;
+    width: 100%;
+    margin-left: 5px;
+    left: 5px;
+}
+
+`
+
 const SubTitle = styled.div`
   color: rgb(249, 249, 249);
-  font-size: 15px;
+  font-size: 13px;
   min-height: 20px;
   @media (max-width: 768px) {
     font-size: 12px;
+  
+  
+  img {
+    height: 20px;
+    width: 50%;
+  }
+  
+  
   }
 `;
+
+const Details = styled.div`
+color: rgb(249, 249, 249);
+font-size: 13px;
+margin: 5px 5px;
+max-width: 80%;
+
+`
 
 const Description = styled.div`
   line-height: 1.4;

@@ -6,10 +6,10 @@ const Login = (props) => {
             <CTA>
                 <CTALogoOne src="/images/cta-logo-one.svg" alt="" />
                 <SignUp>GET ALL THERE</SignUp>
-                <Description>Get Premier Access to Raya and the Last Dragon for an additional fee
-            with a Disney+ subscription. As of 03/26/21, the price of Disney+
-            and The Disney Bundle will increase by $1.</Description>
-            <CTALogoTwo src="/images/cta-logo-two.png" alt="" />
+                <Description>Get Premier Access to The Mandalorian third season for an additional fee
+                    with a Disney+ subscription. As of 03/26/23, the price of Disney+
+                    and The Disney Bundle will increase by $1.</Description>
+                <CTALogoTwo src="/images/cta-logo-two.png" alt="" />
             </CTA>
             <BgImage />
         </Content>
@@ -37,6 +37,8 @@ align-items: center;
 flex-direction: column;
 padding: 80px 40px;
 height: 100%;
+
+
 `;
 
 const BgImage = styled.div`
@@ -78,7 +80,8 @@ font-size: 18px;
 padding: 16.5px 0;
 border: 1px solid transparent;
 border-radius: 4px;
-cursor: pointer;
+cursor: not-allowed;
+transition-duration: 300ms;
 
 &:hover {
     background-color: #0483ee;
@@ -88,10 +91,18 @@ cursor: pointer;
 
 const Description = styled.p`
 color: hsla(0, 0%, 95.3%, 1);
-font-size: 11px;
+font-size: 12px;
 margin: 0 0 24px;
 line-height: 1.5;
 letter-spacing: 1.5px;
+font-weight: bold;
+
+
+@media (max-width: 768px) {
+    font-size: 11px;
+
+}
+
 `;
 
 const CTALogoTwo = styled.img`

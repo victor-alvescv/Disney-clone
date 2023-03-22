@@ -2,6 +2,7 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 const ImgSlider = (props) => {
     let settings = {
@@ -15,27 +16,27 @@ const ImgSlider = (props) => {
     return (
         <Carousel {...settings}>
             <Wrap>
-                <a>
-                    <img src="/images/slider-badging.png" alt="" />
-                </a>
+                <Link to={'/detail/IhOD812JkMO3h9OdRecN'}>
+                    <img src="/images/slider-badging.png" alt="The Mandalorian" />
+                </Link>
             </Wrap>
 
             <Wrap>
-                <a>
-                    <img src="/images/slider-scale.png" alt="" />
-                </a>
+                <Link to={'/detail/eFaqnZN7swcYvxgGsG1N'}>
+                    <img src="/images/slider-scale.png" alt="Encanto" />
+                </Link>
             </Wrap>
 
             <Wrap>
-                <a>
-                    <img src="/images/slider-badag.png" alt="" />
-                </a>
+                <Link to={'/detail/lMHWSUSE2ZYrtU5eDj7M'}>
+                    <img src="/images/slider-badag.png" alt="Moon Knight" />
+                </Link>
             </Wrap>
 
             <Wrap>
-                <a>
-                    <img src="/images/slider-scales.png" alt="" />
-                </a>
+                <Link to={'/detail/wVewquw1WwlhiLgjgs2u'}>
+                    <img src="/images/slider-scales.png" alt="Strange World" />
+                </Link>
             </Wrap>
         </Carousel>
     );
