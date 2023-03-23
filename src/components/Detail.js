@@ -81,15 +81,34 @@ const Container = styled.div`
   position: absolute;
   inset: 0px;
 
-`;
+
+@media (max-width: 768px) {
+  background-image: radial-gradient( at 45% 40%, transparent, rgb(26, 29, 41));
+}
+
+
+  `;
+
+
 
 const PageContent = styled.div`
-margin-top: -120px;
-max-width: 500px;
+margin-top: -180px;
+margin-left: 20px;
 display: flex;
 justify-content: center;
-align-items: center;
 flex-direction: column;
+position: absolute;
+
+
+@media (max-width: 768px) {
+  margin-top: 200px;
+  margin-left: 0px;
+  display: none;
+}
+
+@media (min-width: 1510px) {
+  margin-top: -80px;
+}
 
 
 `
@@ -114,6 +133,7 @@ const Background = styled.div`
     @media (max-width: 768px) {
       width: initial;
       width: 100vw;
+      object-fit: cover;
       }
     }
   }
@@ -133,8 +153,8 @@ const ImageTitle = styled.div`
     max-width: 341px;
     min-width: 100px;
     width: 35vw;
-    
   }
+  
 `;
 
 const ContentMeta = styled.div`
