@@ -23,6 +23,7 @@ display: flex;
 flex-direction: column;
 text-align: center;
 height: 100vh;
+
 `;
 
 const Content = styled.div`
@@ -38,7 +39,6 @@ flex-direction: column;
 padding: 80px 40px;
 height: 100%;
 
-
 `;
 
 const BgImage = styled.div`
@@ -52,6 +52,7 @@ top: 0;
 right: 0;
 left: 0;
 z-index: -1;
+
 `;
 
 const CTA = styled.div`
@@ -59,6 +60,7 @@ max-width: 650px;
 width: 100%;
 display: flex;
 flex-direction: column;
+
 `;
 
 const CTALogoOne = styled.img`
@@ -67,6 +69,7 @@ const CTALogoOne = styled.img`
    min-height: 1px;
    display: block;
    width: 100%;
+
 `;
 
 const SignUp = styled.a`
@@ -85,7 +88,7 @@ transition-duration: 300ms;
 
 &:hover {
     background-color: #0483ee;
-};
+}
 
 `;
 
@@ -97,10 +100,8 @@ line-height: 1.5;
 letter-spacing: 1.5px;
 font-weight: bold;
 
-
 @media (max-width: 768px) {
     font-size: 11px;
-
 }
 
 `;
@@ -111,9 +112,7 @@ margin-bottom: 20px;
 display: inline-block;
 vertical-align: bottom;
 width: 100%;
-`
 
-
-
+`;
 
 export default Login

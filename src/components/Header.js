@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { auth, provider } from '../firebase';
 import {
   selectUserName,
@@ -17,13 +17,18 @@ const Header = (props) => {
   const userPhoto = useSelector(selectUserPhoto);
 
 
+  const backButton = () => {
+    navigate('/detail')
+  }
+  
   useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        setUser(user);
-        navigate('/home');
-      }
-    });
+    auth
+      .onAuthStateChanged(async (user) => {
+        if (user) {
+          setUser(user);
+          navigate('/home');
+        };
+      });
   }, [userName]);
 
   const handleAuth = () => {
@@ -35,16 +40,17 @@ const Header = (props) => {
         })
         .catch((error) => {
           alert(error.message);
-        })
+        });
     } else if (userName) {
       auth
         .signOut()
         .then(() => {
-          dispatch(setSignOutState())
+          dispatch(setSignOutState());
           navigate('/')
         })
-        .catch((error) => alert(error.message));
-    }
+        .catch((error) => alert(error.message)
+        );
+    };
   };
 
   const setUser = (user) => {
@@ -53,46 +59,45 @@ const Header = (props) => {
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
-      })
+      }),
     );
   };
 
   return (
     <Nav>
       <Logo>
-        <Link to="/home">
-        <img src="/images/logo.svg" alt="Disney+" />
-        </Link>
+        <a href="#">
+        <img src='/images/logo.svg' alt='Disney+' />
+        </a>
       </Logo>
-
       {
         !userName ? (
           <Login onClick={handleAuth}>Login</Login>
-        ) : (
+        ) : ( 
           <>
             <NavMenu>
-              <Link to="/home">
-                <img src="/images/home-icon.svg" alt="HOME" />
-                <span>HOME</span>
-              </Link>
               <a>
-                <img src="/images/search-icon.svg" alt="SEARCH" />
+                <img src='/images/home-icon.svg' alt='HOME' />
+                <span>HOME</span>
+              </a>
+              <a>
+                <img src='/images/search-icon.svg' alt='SEARCH' />
                 <span>SEARCH</span>
               </a>
               <a>
-                <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
+                <img src='/images/watchlist-icon.svg' alt='WATCHLIST' />
                 <span>WATCHLIST</span>
               </a>
               <a>
-                <img src="/images/original-icon.svg" alt="ORIGINALS" />
+                <img src='/images/original-icon.svg' alt='ORIGINALS' />
                 <span>ORIGINALS</span>
               </a>
               <a>
-                <img src="/images/movie-icon.svg" alt="MOVIES" />
+                <img src='/images/movie-icon.svg' alt='MOVIES' />
                 <span>MOVIES</span>
               </a>
               <a>
-                <img src="/images/series-icon.svg" alt="SERIES" />
+                <img src='/images/series-icon.svg' alt='SERIES' />
                 <span>SERIES</span>
               </a>
             </NavMenu>
@@ -121,7 +126,8 @@ align-items: center;
 padding: 0 36px;
 letter-spacing: 16px;
 z-index: 3;
-`
+
+`;
 
 const Logo = styled.a`
  padding: 0;
@@ -131,12 +137,12 @@ const Logo = styled.a`
  font-size: 0;
  display: inline-block;
 
- img {
+img {
     display: block;
     width: 100%;
- }
+}
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
   width: 70px;
 } 
 
@@ -154,12 +160,15 @@ position: relative;
 margin-right: auto;
 margin-left: 25px;
 
-}
 
 a {
     display: flex;
     align-items: center;
     padding: 0 12px;
+
+backIcon {
+  color: black;
+}
 
 img {
     height: 20px;
@@ -180,13 +189,11 @@ span {
     cursor: default;
     font-weight: bold;
     
-    
-
-  &:before {
+&:before {
     background-color: rgb(249, 249, 249);
     border-radius: 0px 0px 4px 4px;
     bottom: -6px;
-    content: "";
+    content: '';
     height: 2px;
     opacity: 0;
     left: 0px;
@@ -199,42 +206,44 @@ span {
     width: auto;
   }
 }
+
 &:hover {
     span:before {
         transform: scaleX(1);
         visibility: visible;
         opacity: 1 !important;
-      }
     }
   }
+}
 
-
-
- @media (max-width: 880px) {
+@media (max-width: 880px) {
     display: none; 
 } 
+
 `;
 
 const Login = styled.a`
- background-color: rgba(0, 0, 0, 0.6);
- padding: 8px 16px;
- text-transform: uppercase;
- letter-spacing: 1.5px;
- border: 1px solid #f9f9f9;
- border-radius: 4px;
- transition: all 0.2s ease 0s;
- cursor: pointer;
- font-weight: bold;
+background-color: rgba(0, 0, 0, 0.6);
+padding: 8px 16px;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+border: 1px solid #f9f9f9;
+border-radius: 4px;
+transition: all 0.2s ease 0s;
+cursor: pointer;
+font-weight: bold;
 
 &:hover {
     background-color: #f9f9f9;
     color: #000;
     border-color: transparent;
-  }
+}
+
 `;
 
 const UserImg = styled.img`
 height: 100%;
+
 `;
 
 const DropDown = styled.div`
@@ -250,7 +259,8 @@ font-size: 14px;
 letter-spacing: 3px;
 width: 100px;
 opacity: 0; 
-`
+
+`;
 
 const SignOut = styled.div`
 position: relative;
@@ -262,25 +272,28 @@ align-items: center;
 justify-content: center;
 
 ${UserImg} {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     width: 90%;
-  height: 90%;
-} 
-
+    height: 90%;
+  } 
 }
 
-
 &:hover {
-  ${DropDown} {
+   ${DropDown} {
     opacity: 1;
     transition-duration: 1s;
   }
 }
+
 `;
 
-
 export default Header
+
+/* <a href='/home'>
+<img src='/images/back-icon.png' alt='BACK' />
+<span>BACK</span>
+</a> */

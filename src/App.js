@@ -1,16 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 import Detail from './components/Detail';
 import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 
-
 function App() {
   return (
-    <Router>
+    <Router> 
       <Header />
-      <div className="App">
+      <div className='App'>
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/home' element={<Home />} />
@@ -19,6 +17,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;

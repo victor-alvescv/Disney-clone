@@ -25,7 +25,8 @@ const Detail = (props) => {
     }, [id]);
 
 
-    return <Container>
+    return (
+    <Container>
         <Background>
             <img src={detailData.backgroundImg} alt={detailData.title} />
         </Background>
@@ -48,9 +49,6 @@ const Detail = (props) => {
             </Details>
         <ContentMeta>
             <Controls>
-              {
-
-              }
                 <Player>
                     <img src="/images/play-icon-black.png" alt="" />
                     <span>Play</span>
@@ -68,9 +66,8 @@ const Detail = (props) => {
             </Description>
         </ContentMeta>
         </PageContent>
-    </Container>
-
-}
+    </Container>)
+  }
 
 const Container = styled.div`
   position: relative;

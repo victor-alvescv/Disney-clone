@@ -23,6 +23,9 @@ root.render(
 
 //https://www.youtube.com/watch?v=R_OERlafbmw
 
-// Arrumar a fonte
+/*
 
-// 2880 x 736
+Viewers - Detail - Header;
+
+
+*/

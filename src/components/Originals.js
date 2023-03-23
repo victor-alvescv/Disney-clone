@@ -15,7 +15,7 @@ return (
                 <Wrap key={key}>
                     {movie.id}
                     <Link to={'/detail/' + movie.id}>
-                    <img src={movie.cardImg} alt={movie.title} />
+                    <img src={movie.cardImg} />
                     </Link>
                 </Wrap>
             ))}
@@ -26,6 +26,7 @@ return (
 
 const Container = styled.div`
 padding: 0 0 26px;
+
 `;
 
 const Content = styled.div`
@@ -37,6 +38,7 @@ grid-template-columns: repeat(4, minmax(0, 1fr));
 @media (max-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
 `;
 
 const Wrap = styled.div`
@@ -63,13 +65,13 @@ img {
     top: 0;
 }
 
-
-    &:hover {
-        box-shadow: box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
-        rgb(0 0 0 / 72%) 0px 30px 22px -10px;
-        transform: scale(1.05);
-        border-color: rgba(249, 249, 249, 0.8);
+&:hover {
+    box-shadow: box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+    rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+    transform: scale(1.05);
+    border-color: rgba(249, 249, 249, 0.8);
 }
+
 `;
 
 export default Original
