@@ -44,7 +44,7 @@ const Detail = (props) => {
         <ContentMeta>
           <Controls>
             <Player>
-              <img src="/images/play-icon-black.png" alt="" />
+              <img src="/images/play-icon-white.png" alt="" />
               <span>Play</span>
             </Player>
             <Trailer>
@@ -187,16 +187,16 @@ const Player = styled.button`
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
-  background: rgb(249, 249, 249);
+  background: #0063e5;
   transition-duration: 400ms;
   border: none;
-  color: rgb(0, 0, 0);
+  color: white;
   img {
     width: 20px;
     margin-right: 10px;
   }
   &:hover {
-    background: rgb(198, 198, 198);
+    background: #006eff;
   }
   @media (max-width: 768px) {
     height: 45px;
@@ -211,7 +211,7 @@ const Player = styled.button`
 
 const Trailer = styled(Player)`
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgb(249, 249, 249);
+  border: 1px solid #c0c0c06e;
   color: rgb(249, 249, 249);
 
   &:hover {
@@ -221,7 +221,6 @@ const Trailer = styled(Player)`
 `;
 
 const AddList = styled.div`
-  margin-right: 16px;
   height: 44px;
   width: 44px;
   display: flex;
@@ -232,22 +231,13 @@ const AddList = styled.div`
   transition-duration: 400ms;
   cursor: pointer;
 
-  @media (max-width: 768px) {
-    margin-right: 0px;
+  &:hover {
+    background-color: #0063e5;
   }
 
-  &:hover {
-    background: rgb(249, 249, 249);
-    color: black;
-  }
   span {
     background-color: rgb(249, 249, 249);
     display: inline-block;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.8);
-      color: black;
-    }
 
     &:first-child {
       height: 2px;
