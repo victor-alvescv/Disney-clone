@@ -1,44 +1,42 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectTrending } from '../features/movie/movieSlice';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectTrending } from "../features/movie/movieSlice";
 
 const Trending = (props) => {
-    const movies = useSelector(selectTrending);
+  const movies = useSelector(selectTrending);
 
-return (
+  return (
     <Container>
-    <h4>Trendings</h4>
-    <Content>
-        {movies && 
-        movies.map((movie, key) => (
-                <Wrap key={key}>
-                    {movie.id}
-                    <Link to={'/detail/' + movie.id}>
-                    <img src={movie.cardImg} />
-                    </Link>
-                </Wrap>
-            ))}
-    </Content>
-</Container>
-    )
-}
+      <h4>Trendings</h4>
+      <Content>
+        {movies &&
+          movies.map((movie, key) => (
+            <Wrap key={key}>
+              {movie.id}
+              <Link to={"/detail/" + movie.id}>
+                <img src={movie.cardImg} />
+              </Link>
+            </Wrap>
+          ))}
+      </Content>
+    </Container>
+  );
+};
 
 const Container = styled.div`
-padding: 0 0 26px;
-
+  padding: 0 0 26px;
 `;
 
 const Content = styled.div`
-display: grid;
-grid-gap: 25px;
-gap: 25px;
-grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: grid;
+  grid-gap: 25px;
+  gap: 25px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
+  }
 `;
 
 const Wrap = styled.div`
@@ -74,4 +72,4 @@ img {
 
 `;
 
-export default Trending
+export default Trending;

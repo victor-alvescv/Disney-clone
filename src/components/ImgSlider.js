@@ -5,41 +5,41 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 
 const ImgSlider = (props) => {
-    let settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-    };
-    return (
-        <Carousel {...settings}>
-            <Wrap>
-                <Link to={'/detail/IhOD812JkMO3h9OdRecN'}>
-                    <img src="/images/slider-badging.png" alt="The Mandalorian" />
-                </Link>
-            </Wrap>
+  let settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
+  return (
+    <Carousel {...settings}>
+      <Wrap>
+        <Link to={"/detail/IhOD812JkMO3h9OdRecN"}>
+          <img src="/images/slider-badging.png" alt="The Mandalorian" />
+        </Link>
+      </Wrap>
 
-            <Wrap>
-                <Link to={'/detail/eFaqnZN7swcYvxgGsG1N'}>
-                    <img src="/images/slider-scale.png" alt="Encanto" />
-                </Link>
-            </Wrap>
+      <Wrap>
+        <Link to={"/detail/eFaqnZN7swcYvxgGsG1N"}>
+          <img src="/images/slider-scale.png" alt="Encanto" />
+        </Link>
+      </Wrap>
 
-            <Wrap>
-                <Link to={'/detail/lMHWSUSE2ZYrtU5eDj7M'}>
-                    <img src="/images/slider-badag.png" alt="Moon Knight" />
-                </Link>
-            </Wrap>
+      <Wrap>
+        <Link to={"/detail/lMHWSUSE2ZYrtU5eDj7M"}>
+          <img src="/images/slider-badag.png" alt="Moon Knight" />
+        </Link>
+      </Wrap>
 
-            <Wrap>
-                <Link to={'/detail/wVewquw1WwlhiLgjgs2u'}>
-                    <img src="/images/slider-scales.png" alt="Strange World" />
-                </Link>
-            </Wrap>
-        </Carousel>
-    );
+      <Wrap>
+        <Link to={"/detail/wVewquw1WwlhiLgjgs2u"}>
+          <img src="/images/slider-scales.png" alt="Strange World" />
+        </Link>
+      </Wrap>
+    </Carousel>
+  );
 };
 
 const Carousel = styled(Slider)`
@@ -73,11 +73,11 @@ const Carousel = styled(Slider)`
     transition-duration: 400ms;
 
     &:hover {
-        opacity: 70%;
+      opacity: 70%;
     }
 
     &:active {
-        opacity: 100%;
+      opacity: 100%;
     }
   }
   .slick-next {
@@ -86,11 +86,11 @@ const Carousel = styled(Slider)`
     transition-duration: 400ms;
 
     &:hover {
-        opacity: 70%;
+      opacity: 70%;
     }
-    
+
     &:active {
-        opacity: 100%;
+      opacity: 100%;
     }
   }
 `;
@@ -99,7 +99,7 @@ const Wrap = styled.div`
   border-radius: 4px;
   cursor: pointer;
   position: relative;
-  
+
   a {
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
@@ -108,22 +108,23 @@ const Wrap = styled.div`
     display: block;
     position: relative;
     padding: 4px;
-    
+
     img {
-        border: 4px solid transparent;
-        border-radius: 4px;
-        width: 100%;
-        height: 100%;
-        box-shadow: rgb(0 0 0 / 69%) 0px 26px 36px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
-        transition-duration: 400ms;
-        overflow-clip-margin: content-box;
-        overflow: clip;
-    
-    &:hover {
+      border: 4px solid transparent;
+      border-radius: 4px;
+      width: 100%;
+      height: 100%;
+      box-shadow: rgb(0 0 0 / 69%) 0px 26px 36px -10px,
+        rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+      transition-duration: 400ms;
+      overflow-clip-margin: content-box;
+      overflow: clip;
+
+      &:hover {
         border: 4px solid rgba(249, 249, 249, 0.8);
+      }
     }
   }
-}
 `;
 
 export default ImgSlider;
