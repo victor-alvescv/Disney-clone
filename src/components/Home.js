@@ -54,12 +54,60 @@ const Home = (props) => {
 
   return (
     <Container>
-      <ImgSlider />
-      <Viewers />
-      <Recommends />
-      <NewDisney />
-      <Originals />
+      <div
+        data-aos="fade-down"
+        data-aos-delay="500"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+      >
+        <ImgSlider />
+      </div>
+      <div
+        data-aos="fade-left"
+        data-aos-delay="1000"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+      >
+        <Viewers />
+      </div>
+      <div
+        data-aos="fade-right"
+        data-aos-delay="1500"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+      >
+        <Recommends />
+      </div>
+      <div
+        data-aos="fade-left"
+        data-aos-delay="2000"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+      >
+        <NewDisney />
+      </div>
+      <div
+        data-aos="fade-right"
+        data-aos-delay="2500"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+      >
+        <Originals />
+      </div>
+      <div
+        data-aos="fade-left"
+        data-aos-delay="3000"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+      >
       <Trending />
+      </div>
     </Container>
   );
 };

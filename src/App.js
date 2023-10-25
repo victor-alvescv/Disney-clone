@@ -3,11 +3,22 @@ import Detail from "./components/Detail";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 function App() {
   return (
     <Router>
-      <Header />
+      <div
+        data-aos="fade-in"
+        data-aos-delay="50"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+      >
+        <Header />
+      </div>
       <div className="App">
         <Routes>
           <Route path="/" element={<Login />} />

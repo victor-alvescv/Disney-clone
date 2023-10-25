@@ -25,10 +25,18 @@ const Detail = (props) => {
 
   return (
     <Container>
-      <Background>
+      <Background data-aos="fade-right"
+        data-aos-delay="900"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true">
         <img src={detailData.backgroundImg} alt={detailData.title} />
       </Background>
-      <PageContent>
+      <PageContent data-aos="fade-right"
+        data-aos-delay="1000"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true">
         <ImageTitle>
           <img src={detailData.titleImg} alt={detailData.title} />
         </ImageTitle>
